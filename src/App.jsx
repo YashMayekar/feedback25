@@ -73,7 +73,7 @@ function App() {
       <div>
         <Background />
         <Home />
-        <button onClick={ShowData}>GET DATA</button>
+        {/* <button onClick={ShowData}>GET DATA</button> */}
         <Footer />
       </div>
     </>

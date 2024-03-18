@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
-import logo from "../assets/Logo.png";
+import Hackathon_logo from "../assets/Logo.png";
 import { useState } from "react";
 import { db } from "./config/FirebaseConfig"; 
 import { doc ,setDoc, getDoc, collection } from "firebase/firestore";
-import logo2 from "/public/mlsc-vcet.png"
+import mlsc_logo from "../assets/mlsc_logo.png";
 
 function Home() {
 
@@ -96,20 +96,20 @@ function Home() {
 
     return (
         <div className='home-page'>
-            <div>
+            <div className="image-container">
                 {/* <img src={logo2} alt="Logo" class="logo2" /> */}
-                <h1 class="title">MICROSOFT LEARN STUDENTS CLUB</h1>
+                {/* <img src={mlsc_logo} alt="Logo" /> */}
             </div>
 
             <div className="logo">
-                <img src={logo} alt="Logo" />
+                <img src={Hackathon_logo} alt="Logo" />
             </div>
             
             <div className="heading">
                 <span className="welcome">Thank you for participating !</span>
-                <br />
-                <span className="codefest">Please take a few minutes to share your experience with us. Your feedback is valuable and will help us improve future events.</span>
-                <br />
+
+                <span className="codefest"> Please take a few minutes to share your experience with us. Your feedback is valuable and will help us improve future events.</span>
+
             </div>
 
             <div className='form-title'>
@@ -117,7 +117,6 @@ function Home() {
             </div>
             <div className='form-frame'>
                 <div className='form-content'>
-
                     <div className='question'>
                         <div className="question">
                             Enter your team Code..

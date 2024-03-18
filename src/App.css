@@ -51,7 +51,7 @@ body {
   width: 100%;
   will-change: filter;
   transition: filter 300ms;
-  margin-top: 2cm;
+  margin-top: 25px;
   position: relative;
   z-index: 100;
 }
@@ -59,6 +59,17 @@ body {
 .home-page {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center; /* Added to center horizontally */
+}
+.image-container {
+  width: 150px; 
+  height: 150px; 
+  background: url('../src/assets/mlsc_logo.png') no-repeat center center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 
@@ -203,8 +214,4 @@ body {
 
 .selected {
   background-color: #cdb5db;
-}
-
-.home-page{
-  justify-content: center;
 }
