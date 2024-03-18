@@ -101,9 +101,7 @@ function Home() {
       const teamAccessData = (await getDoc(team_access_ref)).data();
       teamAccessData[teamname] = false;
       await setDoc(team_access_ref, teamAccessData);
-
       setshowdiv(!showdiv);
-      window.location.reload();
       toast.success("Feedback Submitted!!", {
         position: "top-center",
         autoClose: 2000,
@@ -114,6 +112,9 @@ function Home() {
         progress: undefined,
         theme: "dark",
       });
+      setTimeout(() => {
+        window.location.reload();
+      }, 2300);
       console.log("Done");
     } catch (err) {
         toast.error("Please try again!", {
