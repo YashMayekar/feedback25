@@ -32,6 +32,13 @@ function Home() {
   const [showdiv, setshowdiv] = useState(false);
   var [teamname, setname] = useState("");
 
+  const scrollToBottom = () => {
+    window.scrollTo({
+      top: document.body.scrollHeight,
+      behavior: "smooth",
+    });
+  };
+
   const GetCodes_info = async () => {
     const codes = await getDoc(teamcodes_ref);
     setvalid_codes(codes.data());
@@ -117,47 +124,47 @@ function Home() {
       }, 2300);
       console.log("Done");
     } catch (err) {
-        toast.error("Please try again!", {
-            position: "top-center",
-            autoClose: 2000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "dark",
-          });
-          console.log(err)
+      toast.error("Please try again!", {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+      console.log(err);
     }
   };
 
   return (
     <div className="home-page">
-      <div className="image-container">
-        {/* <img src={logo2} alt="Logo" class="logo2" /> */}
-        {/* <img src={mlsc_logo} alt="Logo" /> */}
-      </div>
+      <div className="image-container"></div>
 
       <div className="logo">
         <img src={Hackathon_logo} alt="Logo" />
       </div>
 
-      <div className="heading">
-        <span className="welcome">Thank you for participating !</span>
-
-        <span className="codefest">
-          {" "}
-          Please take a few minutes to share your experience with us. Your
-          feedback is valuable and will help us improve future events.
+      <div>
+        <span className="heading">Feedback Form</span><br />
+        <span className="welcome">
+          Thank you for participating ! Please take a few minutes to share your
+          experience with us. Your feedback is valuable and will help us improve
+          future events.
         </span>
       </div>
+
+      <button className="scroll-down-button" onClick={scrollToBottom}>
+            ↓
+      </button>
 
       <div className="form-title">Your feedback matters!</div>
       <div className="form-frame">
         <div className="form-content">
           <div className="question">
             <div className="question">
-              Enter your team Code..
+              Enter your team code here:
               <br />
               <input
                 type="text"
