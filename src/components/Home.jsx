@@ -3,7 +3,10 @@ import Hackathon_logo from "../assets/Logo.png";
 import { useState } from "react";
 import { db } from "./config/FirebaseConfig";
 import { doc, setDoc, getDoc, collection } from "firebase/firestore";
-import mlsc_logo from "../assets/mlsc_logo.png";
+// import mlsc_logo from "../assets/mlsc_logo.png";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 
 function Home() {
   //Creating reference for the database...
@@ -49,8 +52,8 @@ function Home() {
     console.log("\n");
     GetCodes_info();
     GetAccess_info();
-    console.log("Valid Codes : ", valid_codes);
-    console.log("Access Info : ", access_data);
+    // console.log("Valid Codes : ", valid_codes);
+    // console.log("Access Info : ", access_data);
 
     Object.keys(valid_codes).forEach((key) => {
       if (teamcode === valid_codes[key]) {
@@ -65,10 +68,16 @@ function Home() {
       }
     });
     if (notValidFlag === true) {
-      // toast.success("The Team Code is Invalid!!   !", {
-      //     position: toast.POSITION.TOP_CENTER
-      //   });
-      alert("The team code is Invalid!");
+      toast.error("Team code is invalid or you have already filled the form!", {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
     }
   };
 
@@ -95,9 +104,29 @@ function Home() {
 
       setshowdiv(!showdiv);
       window.location.reload();
-      alert("Feedback submited successfully!!!");
+      toast.success("Feedback Submitted!!", {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+      console.log("Done");
     } catch (err) {
-      console.log("Error : ", err);
+        toast.error("Please try again!", {
+            position: "top-center",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+          });
+          console.log(err)
     }
   };
 
@@ -325,6 +354,18 @@ function Home() {
           Submit
         </button>
       )}
+      <ToastContainer
+        position="top-center"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
     </div>
   );
 }
