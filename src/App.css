@@ -113,8 +113,8 @@ body {
   padding: 2cm;
   border: 1px solid #895eb3;
   background-color: rgba(65, 12, 117, 0.347);
-  height: fit-content;
-  width: fit-content;
+  height: 175px;
+  width: 400px;
   margin-left: auto;
   margin-right: auto;
   border-radius: 100px;
@@ -224,12 +224,12 @@ margin-top: 225px;
   margin-top: 1.2cm;
   border-radius: 100px;
   border: none;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Product Sans', sans-serif;
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: linear-gradient(to bottom right, #e100ffb2, #008cffa4);
+  background-image: linear-gradient(to bottom right, #800080b2, #4b0082a4);
 }
 
 /* .submit ::after{
@@ -272,11 +272,14 @@ margin-top: 225px;
   margin-top: 100px;
   background-color: transparent; /* Button background color */
   color: #fff; /* Button text color */
-  border-radius: 50%; /* Add border radius for rounded corners */
   font-size: 26px; /* Button text size */
   cursor: pointer; /* Show pointer cursor on hover */
   animation: bounce 1s infinite alternate; /* Apply the bounce animation */
+  outline: none; /* Remove blue border on focus */
+  border: none; /* Remove any border */
+  box-shadow: none; /* Remove any box shadow */
 }
+
 
 @keyframes bounce {
   0% {
