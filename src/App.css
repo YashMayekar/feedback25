@@ -215,17 +215,43 @@ margin-top: 225px;
 .submit {
   margin-left: auto;
   margin-right: auto;
-  height: fit-content;
+  height: 80px;
   width: 400px;
   margin-bottom: 1cm;
-  /* font-family: monospace; */
   font-family: 'Product Sans', sans-serif;
   font-size: 30px;
-  color: #f7f6f8;
-  justify-content: center;
-  background-color: #895eb3;
+  background-color: #885eb3a0;
   margin-top: 1.2cm;
   border-radius: 100px;
+  border: none;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(to bottom right, #e100ffb2, #008cffa4);
+}
+
+/* .submit ::after{
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  border-radius: 1000px;
+  
+  background-image: linear-gradient(to bottom right, #e100ff, #008cff7b);
+  z-index: -1;
+  
+} */
+
+.submit:hover {
+  z-index: 0;
+  box-shadow: 30px 0 70px #008cff85,
+    -30px 0 70px #e100ffbb;
+}
+
+.submit:active {
+  background-color: #70007ebb; /* darker color when clicked */
 }
 
 .footer {
@@ -259,4 +285,4 @@ margin-top: 225px;
   100% {
     transform: translateY(15px);
   }
-}
+} 

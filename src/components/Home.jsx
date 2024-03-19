@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import Hackathon_logo from "../assets/Logo.png";
 import { useState } from "react";
 import { db } from "./config/FirebaseConfig";
-import { doc, setDoc, getDoc, collection } from "firebase/firestore";
+import { doc, setDoc, getDoc, collection, QueryStartAtConstraint } from "firebase/firestore";
 // import mlsc_logo from "../assets/mlsc_logo.png";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -24,6 +24,16 @@ function Home() {
   const [Q7, setval7] = useState(0);
   const [Q8, setval8] = useState(0);
   const [suggest, setsug] = useState("");
+
+  // Separate hovered value state for each question
+  const [hoveredValueQ1, setHoveredValueQ1] = useState(0);
+  const [hoveredValueQ2, setHoveredValueQ2] = useState(0);
+  const [hoveredValueQ3, setHoveredValueQ3] = useState(0);
+  const [hoveredValueQ4, setHoveredValueQ4] = useState(0);
+  const [hoveredValueQ5, setHoveredValueQ5] = useState(0);
+  const [hoveredValueQ6, setHoveredValueQ6] = useState(0);
+  const [hoveredValueQ7, setHoveredValueQ7] = useState(0);
+  const [hoveredValueQ8, setHoveredValueQ8] = useState(0);
 
   const [valid_codes, setvalid_codes] = useState([]);
   const [access_data, setaccess_data] = useState([]);
@@ -56,11 +66,26 @@ function Home() {
 
   const ValidCheck = async () => {
     let notValidFlag = true;
+    var TeamcodeNull = false;
     console.log("\n");
     GetCodes_info();
     GetAccess_info();
     // console.log("Valid Codes : ", valid_codes);
     // console.log("Access Info : ", access_data);
+
+    if (teamcode === "") { 
+      TeamcodeNull = true;
+      toast.error("Please enter your team code", {
+      position: "top-center",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    }); 
+  }
 
     Object.keys(valid_codes).forEach((key) => {
       if (teamcode === valid_codes[key]) {
@@ -74,7 +99,7 @@ function Home() {
         }
       }
     });
-    if (notValidFlag === true) {
+    if (notValidFlag === true && TeamcodeNull === false ) {
       toast.error("Team code is invalid or you have already filled the form!", {
         position: "top-center",
         autoClose: 2000,
@@ -87,6 +112,30 @@ function Home() {
       });
     }
   };
+
+  const NullCheck_and_Submit = () => {
+    
+    const Qarray = [ Q1, Q2, Q3, Q4, Q5, Q6, Q7, Q8 ];
+    var NullCheckFlag = false;
+    for ( var i = 0; i <= 7; i++ ) {
+        if (Qarray[i] < 1 || Qarray[i] > 5 ) {
+            NullCheckFlag = true;   
+        }
+    }
+    if (NullCheckFlag === true) {
+        toast.error("Please attempt all the star ratings questions!", {
+            position: "top-center",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+          });
+    }
+    else { Submit(); }
+  }
 
   //Submit button function...
   const Submit = async () => {
@@ -156,7 +205,7 @@ function Home() {
       </div>
 
       <button className="scroll-down-button" onClick={scrollToBottom}>
-            ↓
+        ↓
       </button>
 
       <div className="form-title">Your feedback matters!</div>
@@ -186,13 +235,24 @@ function Home() {
                 <div className="opspacings"></div>
                 <div className="options">
                   {[1, 2, 3, 4, 5].map((value) => (
+                    // <span
+                    //   className="stars"
+                    //   key={value}
+                    //   style={{ cursor: "pointer", marginRight: "30px" }}
+                    //   onClick={() => setval1(value)}
+                    // >
+                    //   {Q1 >= value ? "★" : "☆"}
+                    // </span>
                     <span
                       className="stars"
                       key={value}
                       style={{ cursor: "pointer", marginRight: "30px" }}
+                      onMouseEnter={() => setHoveredValueQ1(value)}
+                      onMouseLeave={() => setHoveredValueQ1(0)}
                       onClick={() => setval1(value)}
+
                     >
-                      {Q1 >= value ? "★" : "☆"}
+                    { (hoveredValueQ1 || Q1) >= value ? "★" : "☆" }
                     </span>
                   ))}
                 </div>
@@ -209,9 +269,11 @@ function Home() {
                       className="stars"
                       key={value}
                       style={{ cursor: "pointer", marginRight: "30px" }}
+                      onMouseEnter={() => setHoveredValueQ2(value)}
+                      onMouseLeave={() => setHoveredValueQ2(0)}
                       onClick={() => setval2(value)}
                     >
-                      {Q2 >= value ? "★" : "☆"}
+                      {(hoveredValueQ2 || Q2) >= value ? "★" : "☆"}
                     </span>
                   ))}
                 </div>
@@ -229,9 +291,11 @@ function Home() {
                       className="stars"
                       key={value}
                       style={{ cursor: "pointer", marginRight: "30px" }}
+                      onMouseEnter={() => setHoveredValueQ3(value)}
+                      onMouseLeave={() => setHoveredValueQ3(0)}
                       onClick={() => setval3(value)}
                     >
-                      {Q3 >= value ? "★" : "☆"}
+                      {(hoveredValueQ3 || Q3)>= value ? "★" : "☆"}
                     </span>
                   ))}
                 </div>
@@ -249,9 +313,11 @@ function Home() {
                       className="stars"
                       key={value}
                       style={{ cursor: "pointer", marginRight: "30px" }}
+                      onMouseEnter={() => setHoveredValueQ4(value)}
+                      onMouseLeave={() => setHoveredValueQ4(0)}
                       onClick={() => setval4(value)}
                     >
-                      {Q4 >= value ? "★" : "☆"}
+                      {(hoveredValueQ4 || Q4) >= value ? "★" : "☆"}
                     </span>
                   ))}
                 </div>
@@ -269,9 +335,11 @@ function Home() {
                       className="stars"
                       key={value}
                       style={{ cursor: "pointer", marginRight: "30px" }}
+                      onMouseEnter={() => setHoveredValueQ5(value)}
+                      onMouseLeave={() => setHoveredValueQ5(0)}
                       onClick={() => setval5(value)}
                     >
-                      {Q5 >= value ? "★" : "☆"}
+                      {(hoveredValueQ5 || Q5) >= value ? "★" : "☆"}
                     </span>
                   ))}
                 </div>
@@ -289,9 +357,11 @@ function Home() {
                       className="stars"
                       key={value}
                       style={{ cursor: "pointer", marginRight: "30px" }}
+                      onMouseEnter={() => setHoveredValueQ6(value)}
+                      onMouseLeave={() => setHoveredValueQ6(0)}
                       onClick={() => setval6(value)}
                     >
-                      {Q6 >= value ? "★" : "☆"}
+                      {(hoveredValueQ6 || Q6) >= value ? "★" : "☆"}
                     </span>
                   ))}
                 </div>
@@ -308,9 +378,11 @@ function Home() {
                       className="stars"
                       key={value}
                       style={{ cursor: "pointer", marginRight: "30px" }}
+                      onMouseEnter={() => setHoveredValueQ7(value)}
+                      onMouseLeave={() => setHoveredValueQ7(0)}
                       onClick={() => setval7(value)}
                     >
-                      {Q7 >= value ? "★" : "☆"}
+                      {(hoveredValueQ7 || Q7) >= value ? "★" : "☆"}
                     </span>
                   ))}
                 </div>
@@ -327,9 +399,11 @@ function Home() {
                       className="stars"
                       key={value}
                       style={{ cursor: "pointer", marginRight: "30px" }}
+                      onMouseEnter={() => setHoveredValueQ8(value)}
+                      onMouseLeave={() => setHoveredValueQ8(0)}
                       onClick={() => setval8(value)}
                     >
-                      {Q8 >= value ? "★" : "☆"}
+                      {(hoveredValueQ8 || Q8) >= value ? "★" : "☆"}
                     </span>
                   ))}
                 </div>
@@ -358,7 +432,7 @@ function Home() {
         </button>
       )}
       {showdiv && (
-        <button className="submit" onClick={Submit}>
+        <button className="submit" onClick={NullCheck_and_Submit}>
           Submit
         </button>
       )}
@@ -378,4 +452,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Home;
