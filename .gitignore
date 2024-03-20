@@ -21,3 +21,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+admin/.env
+admin/firebase_creds.json
+admin/output.pdf
+admin/database_csv.csv
