@@ -1,4 +1,5 @@
 import './App.css';
+import Form from './components/Form';
 import Background from './components/Background';
 import Home from './components/Home';
 import Footer from './components/Footer';
@@ -71,6 +72,7 @@ function App() {
   return (
     <>
       <div>
+        <Form />
         <Background />
         <Home />
         {/* <button onClick={ShowData}>GET DATA</button> */}

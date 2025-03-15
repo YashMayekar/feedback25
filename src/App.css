@@ -50,6 +50,7 @@ body {
 .logo {
   width: 100%;
   will-change: filter;
+  filter: drop-shadow(4px 4px 7px rgb(60, 79, 253));
   transition: filter 300ms;
   margin-top: 25px;
   position: relative;
@@ -111,8 +112,8 @@ body {
 /* Form */
 .form-frame {
   padding: 2cm;
-  border: 1px solid #895eb3;
-  background-color: rgba(65, 12, 117, 0.347);
+  border: 1px solid #002df4;
+  background-color: rgba(0, 0, 255, 0.381);
   height: fit-content;
   width: fit-content;
   margin-left: auto;
@@ -155,12 +156,11 @@ margin-top: 225px;
 .ques9 {
   margin-top: 10px;
   font-size: 30px;
-  color: #f7f6f8;
-  justify-content: center;
+  color: #ffffff;
   /* font-family: monospace;
    */
   font-family: 'Product Sans', sans-serif;
-  margin-bottom: 30px;
+
 }
 
 .option {
@@ -179,7 +179,7 @@ margin-top: 225px;
 /* text input last question */
 .question input[type="text"] {
   border: none;
-  border-bottom: 8px solid rgb(79, 13, 136);
+  border-bottom: 8px solid rgb(34, 0, 255);
   outline: none;
   padding-bottom: 15px;
   font-size: 30px;
@@ -189,7 +189,7 @@ margin-top: 225px;
 }
 
 .question input[type="text"]:focus {
-  border-bottom-color: rgb(74, 3, 128);
+  border-bottom-color:  rgb(34, 0, 255);
   font-size: 34px;
   /* font-family: monospace; */
   font-family: 'Product Sans', sans-serif;
@@ -220,7 +220,7 @@ margin-top: 225px;
   margin-bottom: 1cm;
   font-family: 'Product Sans', sans-serif;
   font-size: 30px;
-  background-color: #885eb3a0;
+  background-color: #1f2effa0;
   margin-top: 1.2cm;
   border-radius: 100px;
   border: none;
@@ -229,7 +229,7 @@ margin-top: 225px;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: linear-gradient(to bottom right, #800080b2, #4b0082a4);
+  background-image: linear-gradient(to bottom right, #007bff9e, #001482a4);
 }
 
 /* .submit ::after{
@@ -246,12 +246,12 @@ margin-top: 225px;
 
 .submit:hover {
   z-index: 0;
-  box-shadow: 30px 0 70px #008cff85,
-    -30px 0 70px #e100ffbb;
+  box-shadow: 10px 0 30px #008cff85,
+    -10px 0 30px #0000ffbb;
 }
 
 .submit:active {
-  background-color: #70007ebb; /* darker color when clicked */
+  background-color: #00007ebb; /* darker color when clicked */
 }
 
 .footer {
@@ -289,3 +289,11 @@ margin-top: 225px;
     transform: translateY(15px);
   }
 } 
+
+.Form {
+  background-color: rgba(0, 0, 255, 0.381);
+  height: 800px;
+  width: 100%;
+  margin: 10% auto;
+  border-radius: 25px;
+}
