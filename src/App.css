@@ -39,8 +39,8 @@ body {
   font-weight: bold;
   padding-top: 2rem;
   /* color: #f4f1f6f0; */
-  color: rgb(92, 1, 131);
-  background: linear-gradient(to right, rgb(84, 81, 149), rgb(153, 122, 191));
+  color: rgb(29, 42, 223);
+  background: linear-gradient(to right, rgb(99, 148, 252), rgb(69, 91, 255));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -50,7 +50,7 @@ body {
 .logo {
   width: 100%;
   will-change: filter;
-  filter: drop-shadow(4px 4px 7px rgb(60, 79, 253));
+  filter: drop-shadow(4px 4px 7px rgb(40, 60, 245));
   transition: filter 300ms;
   margin-top: 25px;
   position: relative;
@@ -89,7 +89,7 @@ body {
   font-size: 55px;
   font-weight: bold;
   padding-top: 1cm;
-  color: rgb(92, 1, 131);
+  color: rgb(6, 9, 212);
   background: linear-gradient(to right, rgb(222, 221, 224), rgb(225, 220, 231));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -102,7 +102,7 @@ body {
   font-size: 25px;
   font-weight: normal;
   padding-top: 1cm;
-  color: rgb(92, 1, 131);
+  color: rgb(6, 9, 212);
   background: linear-gradient(to right, rgb(222, 221, 224), rgb(225, 220, 231));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -189,7 +189,7 @@ margin-top: 225px;
 }
 
 .question input[type="text"]:focus {
-  border-bottom-color:  rgb(34, 0, 255);
+  border-bottom-color: rgb(34, 0, 255);
   font-size: 34px;
   /* font-family: monospace; */
   font-family: 'Product Sans', sans-serif;
@@ -197,7 +197,7 @@ margin-top: 225px;
 
 .ques9 input[type="text"] {
   border: none;
-  border-bottom: 8px solid rgb(79, 13, 136);
+  border-bottom: 8px solid  rgb(34, 0, 255);
   outline: none;
   padding-bottom: 7px;
   font-size: 44px;
@@ -207,7 +207,7 @@ margin-top: 225px;
 }
 
 .ques9 input[type="text"]:focus {
-  border-bottom-color: rgb(74, 3, 128);
+  border-bottom-color:  rgb(34, 0, 255);
   font-size: 34px;
 }
 
@@ -260,7 +260,7 @@ margin-top: 225px;
 }
 
 .selected {
-  background-color: #cdb5db;
+  background-color: #ffffff;
 }
 
 .centered-input {
@@ -289,11 +289,3 @@ margin-top: 225px;
     transform: translateY(15px);
   }
 } 
-
-.Form {
-  background-color: rgba(0, 0, 255, 0.381);
-  height: 800px;
-  width: 100%;
-  margin: 10% auto;
-  border-radius: 25px;
-}

@@ -5,7 +5,7 @@ import { db } from "./config/FirebaseConfig";
 import { doc, setDoc, getDoc, collection, QueryStartAtConstraint } from "firebase/firestore";
 // import mlsc_logo from "../assets/mlsc_logo.png";
 import { ToastContainer, toast } from "react-toastify";
-import "./Home.css";
+import "react-toastify/dist/ReactToastify.css";
 
 
 function Home() {
@@ -227,14 +227,36 @@ function Home() {
           </div>
 
           {showdiv && (
-            <div className="questions_set1 ">
+            <div className="starRatings_set1 ">
               <div className="ques1">
-                 1.How did you first hear about the hackathon?<br/>
-                <div className="opt1">  
-                <label><input type="radio" name="question1" value="Social media (Twitter, LinkedIn, Instagram, etc.)" required /> Social media (Twitter, LinkedIn, Instagram, etc.)</label><br />
-                <label><input type="radio" name="question1" value="University/College noticeboard" />University/College noticeboard</label><br />
-                <label><input type="radio" name="question1" value="Friend/colleague recommendation" />Friend/colleague recommendation</label><br />
+                How would you rate the overall organization and logistics of the
+                hackathon?
+                <br />
+                <div className="opspacings"></div>
+                <div className="options">
+                  {[1, 2, 3, 4, 5].map((value) => (
+                    // <span
+                    //   className="stars"
+                    //   key={value}
+                    //   style={{ cursor: "pointer", marginRight: "30px" }}
+                    //   onClick={() => setval1(value)}
+                    // >
+                    //   {Q1 >= value ? "★" : "☆"}
+                    // </span>
+                    <span
+                      className="stars"
+                      key={value}
+                      style={{ cursor: "pointer", marginRight: "30px" }}
+                      onMouseEnter={() => setHoveredValueQ1(value)}
+                      onMouseLeave={() => setHoveredValueQ1(0)}
+                      onClick={() => setval1(value)}
+
+                    >
+                    { (hoveredValueQ1 || Q1) >= value ? "★" : "☆" }
+                    </span>
+                  ))}
                 </div>
+                <br />
               </div>
 
               <div className="ques2">
