@@ -1,4 +1,2 @@
 vite
 tailwindcss
-tsparticles-slim
-
