@@ -1,5 +1,4 @@
 vite
 tailwindcss
-react-tsparticles
 tsparticles-slim
 
