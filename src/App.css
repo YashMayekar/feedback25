@@ -1,7 +1,7 @@
 @import "./font.css";
 
 :root {
-  --background-color: #ffffff;
+  --background-color: #000000;
   /* Light mode background color */
   --text-color: #000000;
   /* Light mode text color */
