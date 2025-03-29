@@ -213,7 +213,7 @@ function Home() {
         <div className="form-content">
           <div className="question">
             <div className="question">
-              Enter your team code here:
+              Enter your team name here:
               <br />
               <input
                 type="text"
@@ -229,8 +229,7 @@ function Home() {
           {showdiv && (
             <div className="starRatings_set1 ">
               <div className="ques1">
-                How would you rate the overall organization and logistics of the
-                hackathon?
+              Rate your overall satisfaction with the hackathon experience.
                 <br />
                 <div className="opspacings"></div>
                 <div className="options">
@@ -260,7 +259,7 @@ function Home() {
               </div>
 
               <div className="ques2">
-                How satisfied were you with the venue and facilities provided?
+              How satisfied were you with the venue and facilities provided?
                 <br />
                 <div className="opspacings"></div>
                 <div className="options">
@@ -281,8 +280,7 @@ function Home() {
               </div>
 
               <div className="ques3">
-                How well did the hackathon theme align with your interests and
-                expertise?
+              How would you rate the quality and availability of food (breakfast, lunch, dinner, and snacks) during the event?
                 <br />
                 <div className="opspacings"></div>
                 <div className="options">
@@ -303,8 +301,8 @@ function Home() {
               </div>
 
               <div className="ques4">
-                How satisfied were you with the communication channels and
-                updates throughout the hackathon?
+                
+              How effective and supportive were the mentors in guiding participants?
                 <br />
                 <div className="opspacings"></div>
                 <div className="options">
@@ -325,8 +323,8 @@ function Home() {
               </div>
 
               <div className="ques5">
-                How satisfied were you with the judging criteria and evaluation
-                process?
+              How fair and insightful was the judging process?
+
                 <br />
                 <div className="opspacings"></div>
                 <div className="options">
@@ -347,8 +345,8 @@ function Home() {
               </div>
 
               <div className="ques6">
-                How well did the hackathon challenge stimulate creativity and
-                innovation?
+              How well did the hackathon theme align with your interests and
+              expertise?
                 <br />
                 <div className="opspacings"></div>
                 <div className="options">
@@ -369,7 +367,8 @@ function Home() {
               </div>
 
               <div className="ques7">
-                Rate the fairness and transparency of the judging decisions
+              How well did the hackathon challenge stimulate creativity and
+                innovation?
                 <br />
                 <div className="opspacings"></div>
                 <div className="options">
@@ -390,7 +389,8 @@ function Home() {
               </div>
 
               <div className="ques8">
-                Rate your overall satisfaction with the hackathon experience.
+              How would you rate the organization and logistics of the
+              hackathon?
                 <br />
                 <div className="opspacings"></div>
                 <div className="options">

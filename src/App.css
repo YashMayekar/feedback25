@@ -25,9 +25,10 @@ body {
 }
 
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  width: 100%;
+  max-width: 100%; /* Remove fixed max-width */
+  margin: 0;
+  padding: 1rem; /* Reduced padding for mobile */
   text-align: center;
 }
 
@@ -35,15 +36,16 @@ body {
 .title {
   font-family: 'Product Sans', sans-serif;
   /* font-family: monospace; */
-  font-size: 64px;
   font-weight: bold;
-  padding-top: 2rem;
   /* color: #f4f1f6f0; */
   color: rgb(29, 42, 223);
   background: linear-gradient(to right, rgb(99, 148, 252), rgb(69, 91, 255));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+
+  font-size: clamp(2rem, 8vw, 4rem); /* Responsive font sizing */
+  padding-top: 1rem;
 }
 
 /* COHERENCE 0.1 Logo */
@@ -54,8 +56,24 @@ body {
   transition: filter 300ms;
   margin-top: 25px;
   position: relative;
-  z-index: 100;
+  z-index: 100; 
 }
+
+@media (max-width: 768px) {
+  .logo {
+    display: none;
+    width: 50%; /* Slightly smaller on mobile */
+    filter: drop-shadow(3px 3px 5px rgba(40, 60, 245, 0.7));
+  }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+  .logo {
+    width: min(90%, 400px); /* More aggressive scaling */
+  }
+}
+
 
 .home-page {
   display: flex;
@@ -96,7 +114,8 @@ body {
   background-clip: text;
 }
 
-.welcome {
+
+e {
   font-family: 'Product Sans', sans-serif;
   /* font-family: monospace; */
   font-size: 25px;
@@ -109,28 +128,32 @@ body {
   background-clip: text;
 }
 
+
+
 /* Form */
 .form-frame {
-  padding: 2cm;
   border: 1px solid #002df4;
   background-color: rgba(0, 0, 255, 0.381);
   height: fit-content;
-  width: fit-content;
-  margin-left: auto;
-  margin-right: auto;
   border-radius: 100px;
   margin-top: 0.5cm;
+
+  width: 95%; /* More flexible width */
+  max-width: 800px; /* But don't get too wide on desktop */
+  padding: 1rem;
+  margin: 0.5rem auto;
 }
 
 .form-title {
   /* padding: 2cm; */
   font-family: 'Product Sans', sans-serif;
   /* font-family: monospace; */
-  font-size: 54px;
-margin-top: 225px;
   color: whitesmoke;
   background: whitesmoke;
   background-clip: text;
+
+  font-size: clamp(1.5rem, 6vw, 3rem);
+  margin-top: 1rem;
 }
 
 .form-content {
@@ -155,13 +178,52 @@ margin-top: 225px;
 .ques8,
 .ques9 {
   margin-top: 10px;
-  font-size: 30px;
-  color: #ffffff;
+  font-size: clamp(1rem, 4vw, 1.5rem);
+    color: #ffffff;
   /* font-family: monospace;
    */
   font-family: 'Product Sans', sans-serif;
 
 }
+
+.question input[type="text"],
+.ques9 input[type="text"] {
+  width: 90%;
+  max-width: 600px;
+  font-size: clamp(1rem, 4vw, 1.5rem);
+  border-bottom-width: 4px;
+}
+
+
+/* Submit button */
+
+
+/* Logo/image container */
+.image-container {
+  width: clamp(100px, 25vw, 150px);
+  height: clamp(100px, 25vw, 150px);
+  margin-top: 2rem;
+}
+
+/* Media queries - simplified since we're using clamp() */
+@media (max-width: 768px) {
+  .form-frame {
+    padding: 1rem;
+    border-radius: 30px;
+  }
+  
+  .welcome {
+    font-size: clamp(1rem, 4vw, 1.5rem);
+  }
+  
+  .stars {
+    font-size: 1rem;
+  }
+  
+}
+
+
+
 
 .option {
   color: #cdb5db;
@@ -169,7 +231,7 @@ margin-top: 225px;
 }
 
 .stars{
-  font-size: 50px;
+  font-size: 30px;
 }
 
 .opspacings{
@@ -213,13 +275,16 @@ margin-top: 225px;
 
 /* submit button */
 .submit {
-  margin-left: auto;
+    width: 80%;
+    max-width: 300px;
+    height: auto;
+    padding: 1rem;
+    font-size: clamp(1rem, 4vw, 1.5rem);
+
+    margin-left: auto;
   margin-right: auto;
-  height: 80px;
-  width: 400px;
   margin-bottom: 1cm;
   font-family: 'Product Sans', sans-serif;
-  font-size: 30px;
   background-color: #1f2effa0;
   margin-top: 1.2cm;
   border-radius: 100px;
