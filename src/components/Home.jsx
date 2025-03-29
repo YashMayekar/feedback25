@@ -217,7 +217,7 @@ function Home() {
               <br />
               <input
                 type="text"
-                maxLength="20"
+                maxLength="50"
                 onChange={(e) => {
                   setcode(e.target.value);
                 }}
